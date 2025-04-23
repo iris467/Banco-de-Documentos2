@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Documentos por Proveedor</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Banco de Documentos por Proveedor</h1>
+        
+        <!-- Pestañas de proveedores -->
+        <div class="tabs" id="providerTabs">
+            <div class="tab active" data-provider="all">Todos</div>
+            <!-- Las pestañas se generarán dinámicamente -->
+        </div>
+
+        <!-- Formulario para agregar documentos -->
+        <div class="filters">
+            <h2>Agregar Nuevo Documento</h2>
+            <form id="documentForm">
+                <div class="form-group">
+                    <label for="providerName">Proveedor:</label>
+                    <input type="text" id="providerName" placeholder="Nombre del proveedor" required>
+                </div>
+                <div class="form-group">
+                    <label for="docName">Nombre del Documento:</label>
+                    <input type="text" id="docName" required>
+                </div>
+                <div class="form-group">
+                    <label for="docType">Tipo de Documento:</label>
+                    <select id="docType" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="Contrato">Contrato</option>
+                        <option value="Factura">Factura</option>
+                        <option value="Certificado">Certificado</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="docDate">Fecha:</label>
+                    <input type="date" id="docDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="fileInput" class="file-label">Seleccionar Archivo</label>
+                    <input type="file" id="fileInput" class="file-input" required>
+                    <span id="fileName" class="file-name">Ningún archivo seleccionado</span>
+                </div>
+                <button type="submit">Guardar Documento</button>
+            </form>
+        </div>
+
+        <!-- Filtros adicionales -->
+        <div class="filters">
+            <h2>Filtrar Documentos</h2>
+            <div class="form-group">
+                <label for="filterType">Tipo de Documento:</label>
+                <select id="filterType">
+                    <option value="">Todos</option>
+                    <option value="Contrato">Contrato</option>
+                    <option value="Factura">Factura</option>
+                    <option value="Certificado">Certificado</option>
+                </select>
+            </div>
+            <button id="applyFilter">Aplicar Filtro</button>
+            <button id="resetFilter">Resetear</button>
+        </div>
+
+        <!-- Tabla de documentos -->
+        <table id="documentsTable">
+            <thead>
+                <tr>
+                    <th>Proveedor</th>
+                    <th>Documento</th>
+                    <th>Tipo</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="documentsBody">
+                <!-- Los documentos se agregarán aquí dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
